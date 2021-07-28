@@ -5,7 +5,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const PORT = process.env.PORT;
 const ejsMate = require("ejs-mate");
-const userRoutes = require("./routes/User");
+const authRoutes = require("./routes/Auth");
 
 dotenv.config({ path: "./.env" });
 
@@ -15,7 +15,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/", userRoutes);
+app.use("/", authRoutes);
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
